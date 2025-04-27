@@ -164,7 +164,7 @@
             padding: 14px 30px;
             /* Increased padding for larger buttons */
             border: none;
-            border-radius: 8样的8px;
+            border-radius: 8px;
             color: white;
             font-size: 18px;
             /* Larger font size */
@@ -422,6 +422,12 @@
                 margin-top: 30px;
             }
 
+            .form-actions button[type="submit"] {
+                 width: 100%; /* Make submit button full width */
+                 max-width: unset; /* Remove max-width constraint */
+            }
+
+
             .form-actions button,
             .form-actions a.button {
                 padding: 12px 25px;
@@ -431,9 +437,17 @@
             }
 
             .contact-buttons {
-                flex-direction: column; /* Stack contact buttons vertically on smaller screens */
-                gap: 10px;
-                width: 100%; /* Take full width when stacked */
+                flex-direction: row; /* Keep contact buttons in a row */
+                gap: 10px; /* Adjust gap for smaller screens */
+                width: 100%; /* Take full width */
+                justify-content: space-around; /* Distribute space around buttons */
+            }
+
+            .contact-buttons .button {
+                 flex-grow: 1; /* Allow contact buttons to grow */
+                 min-width: unset; /* Remove min-width to allow more flexible sizing */
+                 padding: 10px 15px; /* Adjust padding for smaller buttons */
+                 font-size: 15px; /* Adjust font size for smaller buttons */
             }
 
             .location-instruction {
@@ -471,6 +485,10 @@
                 margin-top: 25px;
             }
 
+            .form-actions button[type="submit"] {
+                 width: 100%; /* Ensure full width */
+            }
+
             .form-actions button,
             .form-actions a.button {
                 padding: 10px 20px;
@@ -481,6 +499,21 @@
                 padding: 10px 20px;
                 font-size: 15px;
             }
+
+             .contact-buttons {
+                flex-direction: row; /* Keep contact buttons in a row */
+                gap: 8px; /* Smaller gap on very small screens */
+                width: 100%; /* Take full width */
+                justify-content: space-around; /* Distribute space around buttons */
+            }
+
+             .contact-buttons .button {
+                 flex-grow: 1; /* Allow contact buttons to grow */
+                 min-width: unset; /* Remove min-width */
+                 padding: 8px 12px; /* Further adjust padding */
+                 font-size: 14px; /* Further adjust font size */
+             }
+
 
             .checkbox-container {
                 font-size: 13px;
