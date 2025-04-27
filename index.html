@@ -136,7 +136,7 @@
         .location-instruction {
             font-size: 15px;
             /* Slightly larger instruction text */
-            color: #556270;
+            color: #dc3545; /* Changed to red */
             margin-bottom: 15px;
             /* More space below instruction */
             text-align: center;
@@ -1328,6 +1328,9 @@
                         locationInput.style.backgroundColor = '#e9ecef'; // Style to look disabled but filled
                         locationError.style.display = 'none'; // Hide error on success
                         locationInstruction.textContent = "Thank You For Giving Your Location"; // Change instruction text
+                         // Change instruction text color back to default or green on success
+                         locationInstruction.style.color = '#28a745'; // Success color
+
 
                         // Re-enable button after success (optional, as it's filled)
                         getLocationBtn.disabled = false;
@@ -1342,6 +1345,8 @@
                         locationError.textContent = "Could not get location. Please enable permissions or enter manually.";
                         locationError.style.display = 'block';
                         locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                        locationInstruction.style.color = '#dc3545'; // Keep instruction text red on failure
+
 
                         // Re-enable button after failure
                         getLocationBtn.disabled = false;
@@ -1361,6 +1366,8 @@
                 locationError.textContent = "Geolocation is not supported by your browser. Please enter manually.";
                 locationError.style.display = 'block';
                 locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                locationInstruction.style.color = '#dc3545'; // Keep instruction text red on failure
+
 
                 // Disable button since it won't work
                 getLocationBtn.disabled = true;
@@ -1555,6 +1562,8 @@
                         getLocationBtn.disabled = false; // Re-enable the button
                         getLocationBtn.textContent = "Get Location"; // Reset button text
                         locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                        locationInstruction.style.color = '#dc3545'; // Reset instruction text color to red
+
 
                         // Also reset the car brand/model inputs visibility and fuel type
                         populateCarModels(); // This will reset the dropdown and hide the 'Other' inputs and reset fuel type
@@ -1594,6 +1603,8 @@
             getLocationBtn.disabled = false; // Ensure button is enabled initially
             getLocationBtn.textContent = "Get Location"; // Set initial button text
             locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Set initial instruction text
+            locationInstruction.style.color = '#dc3545'; // Set initial instruction text color to red
+
 
             // Initialize car brand/model display and fuel type
             populateCarModels(); // Call this to set up the initial state (dropdown visible, 'Other' inputs hidden)
