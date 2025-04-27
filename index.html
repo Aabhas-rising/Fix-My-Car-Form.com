@@ -136,7 +136,8 @@
         .location-instruction {
             font-size: 15px;
             /* Slightly larger instruction text */
-            color: #dc3545; /* Changed to red */
+            color: #dc3545;
+            /* Changed to red */
             margin-bottom: 15px;
             /* More space below instruction */
             text-align: center;
@@ -238,10 +239,11 @@
 
         .get-location-btn:hover {
             background-color: #138496;
-             transform: translateY(-2px);
+            transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-         .get-location-btn:active {
+
+        .get-location-btn:active {
             transform: translateY(0);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -311,6 +313,51 @@
             /* Reduce space above other input */
         }
 
+        /* Style for the checkbox container */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            /* Space below the checkbox */
+            font-size: 15px;
+            color: #34495e;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+            /* Space between checkbox and label */
+            margin-bottom: 0;
+            /* Remove default bottom margin */
+            cursor: pointer;
+            width: auto;
+            /* Allow checkbox to take its default width */
+        }
+
+        .checkbox-container label {
+            margin-bottom: 0;
+            /* Remove default label bottom margin */
+            cursor: pointer;
+            font-weight: 400;
+            /* Lighter weight for checkbox label */
+            display: inline;
+            /* Make label inline with checkbox */
+        }
+
+        .terms-link {
+            color: #007bff;
+            /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .terms-link:hover {
+            color: #0056b3;
+            /* Darker color on hover */
+            text-decoration: underline;
+        }
+
 
         @media (max-width: 768px) {
             .container {
@@ -364,13 +411,18 @@
             }
 
             .location-instruction {
-                 font-size: 14px;
-                 margin-bottom: 10px;
+                font-size: 14px;
+                margin-bottom: 10px;
             }
 
-             .error-message {
-                 font-size: 13px;
-             }
+            .error-message {
+                font-size: 13px;
+            }
+
+            .checkbox-container {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -398,10 +450,16 @@
                 padding: 10px 20px;
                 font-size: 15px;
             }
-             .get-location-btn {
+
+            .get-location-btn {
                 padding: 10px 20px;
                 font-size: 15px;
-             }
+            }
+
+            .checkbox-container {
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -459,7 +517,7 @@
                 <option value="CNG">CNG</option>
                 <option value="Electric">Electric</option>
                 <option value="Hybrid">Hybrid</option>
-                 <option value="Plug-in Hybrid">Plug-in Hybrid</option>
+                <option value="Plug-in Hybrid">Plug-in Hybrid</option>
             </select>
 
             <label for="manufacturingYear">Manufacturing Year:</label>
@@ -477,6 +535,11 @@
                 </div>
                 <div class="error-message" id="locationError">Could not fetch location. Please enable location services or
                     enter manually.</div>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#" class="terms-link">Terms and Conditions</a></label>
             </div>
 
 
@@ -839,10 +902,19 @@
                     fuel: ['Petrol', 'Diesel']
                 }],
                 'Convertibles': [{
-                    model: 'BMW Z4 (2002–Present)',
+                    model: 'BMW C-Class Cabriolet (2016–2023)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW E-Class Cabriolet (2010–2023)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW S-Class Cabriolet (2016–2021)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW SL (1954–Present)',
                     fuel: ['Petrol']
                 }, {
-                    model: 'BMW 4 Series Convertible (2013–Present)',
+                    model: 'BMW SLC (1996–2020)',
                     fuel: ['Petrol', 'Diesel']
                 }],
                 'Electric Vehicles (EVs)': [{
@@ -1196,6 +1268,7 @@
         const nameInput = document.getElementById('fullName'); // Added for validation
         const getLocationBtn = document.getElementById('getLocationBtn'); // Get the new button
         const locationInstruction = document.getElementById('locationInstruction'); // Get the instruction text element
+        const termsCheckbox = document.getElementById('terms'); // Get the terms checkbox
 
 
         // --- FUNCTIONS ---
@@ -1323,13 +1396,13 @@
                         const latitude = position.coords.latitude;
                         const longitude = position.coords.longitude;
                         // Display coordinates
-                        locationInput.value = `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
+                        locationInput.value = ` ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
                         locationInput.readOnly = true; // Keep readonly
                         locationInput.style.backgroundColor = '#e9ecef'; // Style to look disabled but filled
                         locationError.style.display = 'none'; // Hide error on success
                         locationInstruction.textContent = "Thank You For Giving Your Location"; // Change instruction text
-                         // Change instruction text color back to default or green on success
-                         locationInstruction.style.color = '#28a745'; // Success color
+                        // Change instruction text color back to default or green on success
+                        locationInstruction.style.color = '#28a745'; // Success color
 
 
                         // Re-enable button after success (optional, as it's filled)
@@ -1516,6 +1589,15 @@
                 locationError.style.display = 'none'; // Hide error if location is valid (either fetched or manually entered)
             }
 
+            // Validate Terms and Conditions Checkbox
+            if (!termsCheckbox.checked) {
+                isValid = false;
+                if (!responseMessage.textContent) {
+                    responseMessage.textContent = "You must agree to the Terms and Conditions.";
+                    // You could add a visual indicator to the checkbox or label here if needed
+                }
+            }
+
 
             if (!isValid) {
                 e.preventDefault(); // STOP submission if any validation failed
@@ -1540,6 +1622,9 @@
                 // Ensure the selected fuel type is included
                 formData.set('fuelType', fuelTypeSelect.value);
 
+                // Include the terms acceptance in the form data
+                formData.set('termsAccepted', termsCheckbox.checked ? 'Yes' : 'No');
+
 
                 fetch(form.action, {
                     method: form.method,
@@ -1552,6 +1637,20 @@
                         responseMessage.textContent = 'Thank you for your booking! We will contact you shortly.';
                         responseMessage.style.color = '#28a745'; // Success color
                         form.reset(); // Reset the form on successful submission
+
+                        // --- Show Browser Notification ---
+                        if ('Notification' in window) {
+                            Notification.requestPermission().then(permission => {
+                                if (permission === 'granted') {
+                                    new Notification('Booking Submitted', {
+                                        body: 'We will contact you shortly.'
+                                    });
+                                }
+                            });
+                        }
+                        // ---------------------------------
+
+
                         // Manually trigger actions that reset doesn't handle fully:
                         // Do NOT call getUserLocation here, as it would immediately try to fetch again.
                         // Instead, reset the UI state manually.
@@ -1564,9 +1663,11 @@
                         locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
                         locationInstruction.style.color = '#dc3545'; // Reset instruction text color to red
 
-
                         // Also reset the car brand/model inputs visibility and fuel type
                         populateCarModels(); // This will reset the dropdown and hide the 'Other' inputs and reset fuel type
+
+                        // Uncheck the terms checkbox on reset
+                        termsCheckbox.checked = false;
 
 
                         phoneError.style.display = 'none'; // Hide phone error after reset
