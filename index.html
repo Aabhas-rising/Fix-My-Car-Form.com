@@ -150,10 +150,13 @@
             margin-top: 40px;
             /* More space above buttons */
             display: flex;
+            /* Use flexbox for layout */
             justify-content: center;
+            align-items: center; /* Align items vertically in the container */
             flex-wrap: wrap;
+            /* Allow items to wrap on smaller screens */
             gap: 20px;
-            /* Increased space between buttons */
+            /* Increased space between flex items */
         }
 
         .form-actions button,
@@ -161,7 +164,7 @@
             padding: 14px 30px;
             /* Increased padding for larger buttons */
             border: none;
-            border-radius: 8px;
+            border-radius: 8样的8px;
             color: white;
             font-size: 18px;
             /* Larger font size */
@@ -178,6 +181,16 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             /* Subtle button shadow */
         }
+
+        /* Style for the container holding Call and WhatsApp buttons */
+        .contact-buttons {
+            display: flex; /* Use flexbox to put Call and WhatsApp side-by-side */
+            gap: 15px; /* Space between Call and WhatsApp buttons */
+            flex-wrap: wrap; /* Allow these buttons to wrap if needed */
+            justify-content: center; /* Center the contact buttons within their container */
+            align-items: center; /* Vertically align contact buttons */
+        }
+
 
         .form-actions button:hover,
         .form-actions a.button:hover {
@@ -199,6 +212,8 @@
         button[type="submit"] {
             background-color: #007bff;
             /* Primary blue */
+            flex-grow: 1; /* Allow submit button to grow and take more space */
+            max-width: 300px; /* Optional: Maximum width for the submit button */
         }
 
         button[type="submit"]:hover {
@@ -208,6 +223,8 @@
         .call-btn {
             background-color: #6c757d;
             /* Muted grey */
+             flex-grow: 1; /* Allow call button to grow */
+             min-width: 120px; /* Adjusted min-width for smaller buttons */
         }
 
         .call-btn:hover {
@@ -218,6 +235,8 @@
         .whatsapp-btn {
             background-color: #28a745;
             /* Success green */
+            flex-grow: 1; /* Allow whatsapp button to grow */
+            min-width: 120px; /* Adjusted min-width for smaller buttons */
         }
 
         .whatsapp-btn:hover {
@@ -398,6 +417,7 @@
             }
 
             .form-actions {
+                flex-direction: column; /* Stack buttons vertically on smaller screens */
                 gap: 15px;
                 margin-top: 30px;
             }
@@ -408,6 +428,12 @@
                 font-size: 16px;
                 min-width: unset;
                 flex-grow: 1;
+            }
+
+            .contact-buttons {
+                flex-direction: column; /* Stack contact buttons vertically on smaller screens */
+                gap: 10px;
+                width: 100%; /* Take full width when stacked */
             }
 
             .location-instruction {
@@ -547,8 +573,10 @@
 
             <div class="form-actions">
                 <button type="submit">Submit Booking</button>
-                <a href="tel:+919303931226" class="button call-btn">Call Now</a>
-                <a href="https://wa.me/+919303931226" class="button whatsapp-btn" target="_blank">WhatsApp</a>
+                 <div class="contact-buttons">
+                    <a href="tel:+919303931226" class="button call-btn">Call Now</a>
+                    <a href="https://wa.me/+919303931226" class="button whatsapp-btn" target="_blank">WhatsApp</a>
+                </div>
             </div>
         </form>
 
@@ -1396,7 +1424,7 @@
                         const latitude = position.coords.latitude;
                         const longitude = position.coords.longitude;
                         // Display coordinates
-                        locationInput.value = ` ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+                        locationInput.value = `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
                         locationInput.readOnly = true; // Keep readonly
                         locationInput.style.backgroundColor = '#e9ecef'; // Style to look disabled but filled
                         locationError.style.display = 'none'; // Hide error on success
