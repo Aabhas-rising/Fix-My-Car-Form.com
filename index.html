@@ -152,7 +152,8 @@
             display: flex;
             /* Use flexbox for layout */
             justify-content: center;
-            align-items: center; /* Align items vertically in the container */
+            align-items: center;
+            /* Align items vertically in the container */
             flex-wrap: wrap;
             /* Allow items to wrap on smaller screens */
             gap: 20px;
@@ -184,11 +185,16 @@
 
         /* Style for the container holding Call and WhatsApp buttons */
         .contact-buttons {
-            display: flex; /* Use flexbox to put Call and WhatsApp side-by-side */
-            gap: 15px; /* Space between Call and WhatsApp buttons */
-            flex-wrap: wrap; /* Allow these buttons to wrap if needed */
-            justify-content: center; /* Center the contact buttons within their container */
-            align-items: center; /* Vertically align contact buttons */
+            display: flex;
+            /* Use flexbox to put Call and WhatsApp side-by-side */
+            gap: 15px;
+            /* Space between Call and WhatsApp buttons */
+            flex-wrap: wrap;
+            /* Allow these buttons to wrap if needed */
+            justify-content: center;
+            /* Center the contact buttons within their container */
+            align-items: center;
+            /* Vertically align contact buttons */
         }
 
 
@@ -212,8 +218,10 @@
         button[type="submit"] {
             background-color: #007bff;
             /* Primary blue */
-            flex-grow: 1; /* Allow submit button to grow and take more space */
-            max-width: 300px; /* Optional: Maximum width for the submit button */
+            flex-grow: 1;
+            /* Allow submit button to grow and take more space */
+            max-width: 300px;
+            /* Optional: Maximum width for the submit button */
         }
 
         button[type="submit"]:hover {
@@ -223,8 +231,10 @@
         .call-btn {
             background-color: #6c757d;
             /* Muted grey */
-             flex-grow: 1; /* Allow call button to grow */
-             min-width: 120px; /* Adjusted min-width for smaller buttons */
+            flex-grow: 1;
+            /* Allow call button to grow */
+            min-width: 120px;
+            /* Adjusted min-width for smaller buttons */
         }
 
         .call-btn:hover {
@@ -235,8 +245,10 @@
         .whatsapp-btn {
             background-color: #28a745;
             /* Success green */
-            flex-grow: 1; /* Allow whatsapp button to grow */
-            min-width: 120px; /* Adjusted min-width for smaller buttons */
+            flex-grow: 1;
+            /* Allow whatsapp button to grow */
+            min-width: 120px;
+            /* Adjusted min-width for smaller buttons */
         }
 
         .whatsapp-btn:hover {
@@ -417,14 +429,17 @@
             }
 
             .form-actions {
-                flex-direction: column; /* Stack buttons vertically on smaller screens */
+                flex-direction: column;
+                /* Stack buttons vertically on smaller screens */
                 gap: 15px;
                 margin-top: 30px;
             }
 
             .form-actions button[type="submit"] {
-                 width: 100%; /* Make submit button full width */
-                 max-width: unset; /* Remove max-width constraint */
+                width: 100%;
+                /* Make submit button full width */
+                max-width: unset;
+                /* Remove max-width constraint */
             }
 
 
@@ -437,17 +452,25 @@
             }
 
             .contact-buttons {
-                flex-direction: row; /* Keep contact buttons in a row */
-                gap: 10px; /* Adjust gap for smaller screens */
-                width: 100%; /* Take full width */
-                justify-content: space-around; /* Distribute space around buttons */
+                flex-direction: row;
+                /* Keep contact buttons in a row */
+                gap: 10px;
+                /* Adjust gap for smaller screens */
+                width: 100%;
+                /* Take full width */
+                justify-content: space-around;
+                /* Distribute space around buttons */
             }
 
             .contact-buttons .button {
-                 flex-grow: 1; /* Allow contact buttons to grow */
-                 min-width: unset; /* Remove min-width to allow more flexible sizing */
-                 padding: 10px 15px; /* Adjust padding for smaller buttons */
-                 font-size: 15px; /* Adjust font size for smaller buttons */
+                flex-grow: 1;
+                /* Allow contact buttons to grow */
+                min-width: unset;
+                /* Remove min-width to allow more flexible sizing */
+                padding: 10px 15px;
+                /* Adjust padding for smaller buttons */
+                font-size: 15px;
+                /* Adjust font size for smaller buttons */
             }
 
             .location-instruction {
@@ -486,7 +509,8 @@
             }
 
             .form-actions button[type="submit"] {
-                 width: 100%; /* Ensure full width */
+                width: 100%;
+                /* Ensure full width */
             }
 
             .form-actions button,
@@ -500,19 +524,27 @@
                 font-size: 15px;
             }
 
-             .contact-buttons {
-                flex-direction: row; /* Keep contact buttons in a row */
-                gap: 8px; /* Smaller gap on very small screens */
-                width: 100%; /* Take full width */
-                justify-content: space-around; /* Distribute space around buttons */
+            .contact-buttons {
+                flex-direction: row;
+                /* Keep contact buttons in a row */
+                gap: 8px;
+                /* Smaller gap on very small screens */
+                width: 100%;
+                /* Take full width */
+                justify-content: space-around;
+                /* Distribute space around buttons */
             }
 
-             .contact-buttons .button {
-                 flex-grow: 1; /* Allow contact buttons to grow */
-                 min-width: unset; /* Remove min-width */
-                 padding: 8px 12px; /* Further adjust padding */
-                 font-size: 14px; /* Further adjust font size */
-             }
+            .contact-buttons .button {
+                flex-grow: 1;
+                /* Allow contact buttons to grow */
+                min-width: unset;
+                /* Remove min-width */
+                padding: 8px 12px;
+                /* Further adjust padding */
+                font-size: 14px;
+                /* Further adjust font size */
+            }
 
 
             .checkbox-container {
@@ -563,6 +595,7 @@
             <label for="carModel">Car Model:</label>
             <select id="carModel" name="carModel" required disabled>
                 <option value="">Select Car Brand First</option>
+                <option value="Other">Other</option>
             </select>
             <input type="text" id="otherCarModelInput" name="otherCarModel" class="other-input"
                 placeholder="Enter Car Model Name" />
@@ -606,7 +639,7 @@
 
             <div class="form-actions">
                 <button type="submit">Submit Booking</button>
-                 <div class="contact-buttons">
+                <div class="contact-buttons">
                     <a href="tel:+919303931226" class="button call-btn">Call Now</a>
                     <a href="https://wa.me/+919303931226" class="button whatsapp-btn" target="_blank">WhatsApp</a>
                 </div>
@@ -1289,7 +1322,7 @@
                 }, {
                     model: 'Maruti-Suzuki Swift Dzire',
                     fuel: ['Petrol', 'Diesel', 'CNG']
-                }],
+                }, ],
                 'SUVs/Crossovers': [{
                     model: 'Maruti Suzuki Brezza',
                     fuel: ['Petrol', 'CNG']
@@ -1315,9 +1348,9 @@
 
         // --- ELEMENTS ---
         const carBrandSelect = document.getElementById('carBrand');
-        const otherCarBrandInput = document.getElementById('otherCarBrandInput'); // Get the new input
+        const otherCarBrandInput = document.getElementById('otherCarBrandInput'); // Get the new input for other brand
         const carModelSelect = document.getElementById('carModel');
-        const otherCarModelInput = document.getElementById('otherCarModelInput'); // Get the new input
+        const otherCarModelInput = document.getElementById('otherCarModelInput'); // Get the new input for other model
         const fuelTypeSelect = document.getElementById('fuelType'); // Get the fuel type select
         const yearSelect = document.getElementById('manufacturingYear');
         const locationInput = document.getElementById('location');
@@ -1336,11 +1369,18 @@
         function populateCarModels() {
             const brand = carBrandSelect.value;
             carModelSelect.innerHTML = '<option value="">Select Car Model</option>';
+            // Add the "Other" option to the model select regardless of brand
+            const otherModelOption = document.createElement('option');
+            otherModelOption.value = 'Other';
+            otherModelOption.textContent = 'Other';
+            carModelSelect.appendChild(otherModelOption);
+
             carModelSelect.disabled = true;
             otherCarBrandInput.style.display = 'none'; // Hide other brand input by default
             otherCarBrandInput.required = false; // Make it not required by default
             otherCarModelInput.style.display = 'none'; // Hide other model input by default
             otherCarModelInput.required = false; // Make it not required by default
+            carModelSelect.style.display = 'block'; // Show car model select by default
 
             // Reset fuel type when brand changes
             resetFuelType();
@@ -1354,7 +1394,6 @@
                 otherCarModelInput.required = true; // Make it required
                 fuelTypeSelect.disabled = false; // Enable fuel type for manual selection
             } else if (brand && carModels[brand]) {
-                carModelSelect.style.display = 'block'; // Show car model select
                 const brandData = carModels[brand];
                 for (const category in brandData) {
                     if (brandData.hasOwnProperty(category) && Array.isArray(brandData[category])) {
@@ -1372,15 +1411,25 @@
                 carModelSelect.disabled = false;
                 fuelTypeSelect.disabled = true; // Disable fuel type until model is selected
             } else if (brand) {
-                carModelSelect.style.display = 'block'; // Show car model select
                 carModelSelect.innerHTML = '<option value="">No models listed</option>';
-                carModelSelect.disabled = true;
+                 // Add the "Other" option back if no models listed
+                const otherModelOptionFallback = document.createElement('option');
+                otherModelOptionFallback.value = 'Other';
+                otherModelOptionFallback.textContent = 'Other';
+                carModelSelect.appendChild(otherModelOptionFallback);
+
+                carModelSelect.disabled = false; // Enable to select "Other"
                 fuelTypeSelect.disabled = true; // Disable fuel type
             } else {
-                carModelSelect.style.display = 'block'; // Show car model select
-                carModelSelect.innerHTML = '<option value="">Select Car Brand First</option>';
-                carModelSelect.disabled = true;
-                fuelTypeSelect.disabled = true; // Disable fuel type
+                 // If no brand selected, only show the default and "Other" options
+                 carModelSelect.innerHTML = '<option value="">Select Car Brand First</option>';
+                 const otherModelOptionInitial = document.createElement('option');
+                 otherModelOptionInitial.value = 'Other';
+                 otherModelOptionInitial.textContent = 'Other';
+                 carModelSelect.appendChild(otherModelOptionInitial);
+
+                 carModelSelect.disabled = true; // Keep disabled until brand is selected
+                 fuelTypeSelect.disabled = true; // Disable fuel type
             }
         }
 
@@ -1390,7 +1439,11 @@
 
             resetFuelType(); // Reset fuel type before updating
 
-            if (brand && model && brand !== 'Other' && carModels[brand]) {
+            if (brand === 'Other' || model === 'Other') {
+                 // If either brand or model is "Other", enable fuel type for manual selection
+                 fuelTypeSelect.disabled = false;
+            }
+            else if (brand && model && carModels[brand]) {
                 const brandData = carModels[brand];
                 let foundModel = null;
                 // Find the selected model data
@@ -1416,14 +1469,23 @@
                     // If model not found or no fuel data, enable for manual entry
                     fuelTypeSelect.disabled = false;
                 }
-            } else if (brand === 'Other') {
-                // If "Other" brand, enable fuel type for manual selection
-                fuelTypeSelect.disabled = false;
             } else {
                 // If no brand or model selected, disable fuel type
                 fuelTypeSelect.disabled = true;
             }
+
+            // Toggle visibility of otherCarModelInput based on model selection
+            if (model === 'Other' && brand !== 'Other') { // Only show if a specific brand is selected AND model is "Other"
+                 otherCarModelInput.style.display = 'block';
+                 otherCarModelInput.required = true;
+                 carModelSelect.style.display = 'none'; // Hide the select when manual input is needed
+            } else {
+                 otherCarModelInput.style.display = 'none';
+                 otherCarModelInput.required = false;
+                 carModelSelect.style.display = 'block'; // Show the select otherwise
+            }
         }
+
 
         function resetFuelType() {
             fuelTypeSelect.value = ""; // Reset to default option
@@ -1567,6 +1629,8 @@
 
             // Validate Car Brand and Model (Handle "Other" case)
             const selectedBrand = carBrandSelect.value;
+            const selectedModel = carModelSelect.value;
+
             if (!selectedBrand) {
                 isValid = false;
                 if (!responseMessage.textContent) {
@@ -1581,7 +1645,7 @@
                         otherCarBrandInput.focus();
                     }
                 }
-                if (!otherCarModelInput.value.trim()) {
+                if (!otherCarModelInput.value.trim()) { // Validate the manual model input when brand is "Other"
                     isValid = false;
                     if (!responseMessage.textContent) {
                         responseMessage.textContent = "Please enter the Car Model name.";
@@ -1589,14 +1653,21 @@
                     }
                 }
             } else { // A specific brand is selected
-                if (carModelSelect.disabled || !carModelSelect.value) { // Check if disabled OR no value selected
-                    isValid = false;
-                    if (!responseMessage.textContent) {
-                        // Refine message based on state
-                        responseMessage.textContent = carModelSelect.disabled ? "Please select a Car Brand first." : "Please select a Car Model.";
-                        carModelSelect.focus();
-                    }
-                }
+                 if (selectedModel === 'Other') { // Specific brand selected, but model is "Other"
+                     if (!otherCarModelInput.value.trim()) { // Validate the manual model input
+                         isValid = false;
+                         if (!responseMessage.textContent) {
+                             responseMessage.textContent = "Please enter the Car Model name.";
+                             otherCarModelInput.focus();
+                         }
+                     }
+                 } else if (!selectedModel) { // Specific brand selected, but no model selected (and not "Other")
+                     isValid = false;
+                     if (!responseMessage.textContent) {
+                         responseMessage.textContent = "Please select a Car Model.";
+                         carModelSelect.focus();
+                     }
+                 }
             }
 
 
@@ -1670,15 +1741,13 @@
                 e.preventDefault(); // Prevent default form submission for AJAX example
                 const formData = new FormData(form);
 
-                // Append manual brand/model if "Other" is selected
-                if (carBrandSelect.value === 'Other') {
-                    formData.set('carBrand', otherCarBrandInput.value.trim()); // Use manual brand
-                    formData.set('carModel', otherCarModelInput.value.trim()); // Use manual model
-                } else {
-                    // Ensure the select values are used if not 'Other'
-                    formData.set('carBrand', carBrandSelect.value);
-                    formData.set('carModel', carModelSelect.value);
-                }
+                // Append manual brand/model if "Other" is selected for either brand or model
+                const finalCarBrand = carBrandSelect.value === 'Other' ? otherCarBrandInput.value.trim() : carBrandSelect.value;
+                const finalCarModel = carModelSelect.value === 'Other' || carBrandSelect.value === 'Other' ? otherCarModelInput.value.trim() : carModelSelect.value;
+
+                formData.set('carBrand', finalCarBrand);
+                formData.set('carModel', finalCarModel);
+
 
                 // Ensure the selected fuel type is included
                 formData.set('fuelType', fuelTypeSelect.value);
